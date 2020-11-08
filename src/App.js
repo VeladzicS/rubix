@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import { Switch, Route } from "react-router-dom";
+import GlobalStyle from "./globalStyles";
+import Home from "./pages/Home/Home";
+import SinglePage from "./pages/SinglePage/SinglePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <GlobalStyle />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/single/:item/:id" children={<SinglePage />}></Route>
+      </Switch>
+    </Fragment>
   );
 }
 
