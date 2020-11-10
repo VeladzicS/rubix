@@ -9,13 +9,12 @@ export const Nav = styled.nav`
 
   @media screen and (max-width: 665px) {
     width: 30rem;
-    margin: 5rem auto;
+    margin: 2rem auto;
   }
 `;
 
 export const NavItem = styled.button`
   width: 20rem;
-  color: var(--clr-black);
   padding: 0.5rem 1rem;
   letter-spacing: var(--spacing);
   display: inline-block;

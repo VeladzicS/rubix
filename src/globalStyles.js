@@ -124,7 +124,7 @@ const GlobalStyle = createGlobalStyle`
   .active {
     background: var(--clr-primary-5);
     outline: none !important;
-    color: var(--clr-white);
+    color: var(--clr-white) !important;
   }
 
   
@@ -146,10 +146,26 @@ export const Container = styled.div`
   }
 `;
 
+export const MessageToClient = styled.div`
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateY(-50%);
+`;
+
 export const override = css`
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+`;
+
+export const overrideSingle = css`
   position: absolute;
   top: 50%;
   left: 50%;
+  white-space: nowrap;
   transform: translate(-50%, -50%);
 `;
 

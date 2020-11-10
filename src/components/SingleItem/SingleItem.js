@@ -13,7 +13,7 @@ import {
   SingleItemItemsDiv,
   SingleItemTrailerWrapper,
 } from "./SingleItems.elements";
-import { override } from "../../globalStyles";
+import { overrideSingle } from "../../globalStyles";
 
 import { API_URL, API_KEY, IMAGE_BASE_URL } from "../../config";
 
@@ -48,7 +48,11 @@ const SingleItem = () => {
   const { poster_path, title, name, overview } = singleShow;
   if (loading) {
     return (
-      <PulseLoader css={override} size={50} color={"var(--clr-primary-5)"} />
+      <PulseLoader
+        css={overrideSingle}
+        size={40}
+        color={"var(--clr-primary-5)"}
+      />
     );
   }
 

@@ -62,15 +62,19 @@ const MovieList = () => {
 
   if (query !== tempQueryValue) {
     return (
-      <PulseLoader css={override} size={50} color={"var(--clr-primary-5)"} />
+      <MovieListContainer>
+        <PulseLoader css={override} size={50} color={"var(--clr-primary-5)"} />
+      </MovieListContainer>
     );
   }
 
   if (list.length === 0) {
     return (
-      <EmptySearchMessage>
-        No items match your search parameters.
-      </EmptySearchMessage>
+      <MovieListContainer>
+        <EmptySearchMessage>
+          No items match your search parameters.
+        </EmptySearchMessage>
+      </MovieListContainer>
     );
   }
 
@@ -89,7 +93,7 @@ const MovieList = () => {
                   src={
                     poster_path !== null
                       ? `https://image.tmdb.org/t/p/original/${poster_path}`
-                      : "http://via.placeholder.com/400x600?text=No+Cover+Image+Available"
+                      : "https://via.placeholder.com/400x600?text=No+Cover+Image+Available"
                   }
                   alt="Featured Image"
                 />

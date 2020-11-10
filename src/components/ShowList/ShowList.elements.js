@@ -7,6 +7,7 @@ export const MovieListContainer = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-column-gap: 15rem;
   grid-row-gap: 2rem;
+  position: relative;
 
   @media screen and (max-width: 1169px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -19,6 +20,10 @@ export const MovieListContainer = styled.section`
 
   @media screen and (max-width: 665px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 2.5rem;
+  }
+  @media screen and (max-width: 530px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-column-gap: 2.5rem;
   }
 `;
@@ -57,7 +62,7 @@ export const SingleShowTitleDiv = styled.div`
 
 export const EmptySearchMessage = styled.h2`
   position: absolute;
-  top: 50%;
+  top: 1rem;
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--clr-primary-5);
@@ -68,5 +73,8 @@ export const EmptySearchMessage = styled.h2`
   @media screen and (max-width: 665px) {
     white-space: normal;
     font-size: 2rem;
+  }
+  @media screen and (max-width: 480px) {
+    top: 3rem;
   }
 `;

@@ -9,6 +9,9 @@ export const SingleItemDiv = styled.article`
   max-width: 1144px;
   height: 100vh;
   padding-top: 5rem;
+  @media screen and (max-width: 440px) {
+    padding-top: 2rem;
+  }
 `;
 
 export const SingleItemTrailerWrapper = styled.div`
@@ -40,7 +43,7 @@ export const SingleItemImg = styled.img`
   height: auto;
   max-height: 650px;
   border: 3px solid var(--clr-black);
-  margin: 0 0 2rem 0;
+  margin: 0 auto;
   @media screen and (max-width: 550px) {
     width: 60%;
     height: auto;
@@ -49,7 +52,6 @@ export const SingleItemImg = styled.img`
   @media screen and (max-width: 450px) {
     width: 80%;
     height: auto;
-    margin-top: 8rem;
   }
 
   @media screen and (max-width: 400px) {
@@ -64,6 +66,7 @@ export const SingleItemTitle = styled.h2`
   justify-self: flex-start;
   align-self: flex-start;
   color: var(--clr-grey-1);
+  margin-top: 2rem;
 
   span {
     font-size: 1.7rem;
@@ -109,5 +112,9 @@ export const SingleItemNav = styled(Link)`
 
   &:hover {
     color: var(--clr-grey-5);
+  }
+
+  @media screen and (max-width: 450px) {
+    margin: 1.5rem 0;
   }
 `;
