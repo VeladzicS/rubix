@@ -7,7 +7,7 @@ export const SingleItemDiv = styled.article`
   flex-direction: column;
   width: 100%;
   max-width: 1144px;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 5rem;
   @media screen and (max-width: 440px) {
     padding-top: 2rem;
