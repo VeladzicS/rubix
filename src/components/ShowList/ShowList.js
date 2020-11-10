@@ -7,6 +7,7 @@ import {
   SingleShowImg,
   SingleShowTitle,
   EmptySearchMessage,
+  SingleShowTitleDiv,
 } from "./ShowList.elements";
 import { override } from "../../globalStyles";
 import { Link } from "react-router-dom";
@@ -92,7 +93,10 @@ const MovieList = () => {
                   }
                   alt="Featured Image"
                 />
-                <SingleShowTitle>{title ? title : name}</SingleShowTitle>
+                <SingleShowTitleDiv>
+                  {" "}
+                  <SingleShowTitle> {title ? title : name}</SingleShowTitle>
+                </SingleShowTitleDiv>
               </SingleShow>
             </Link>
           );

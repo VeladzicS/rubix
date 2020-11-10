@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import placeholder from "./images/noimage.jpg";
 
 import { css } from "@emotion/core";
 const GlobalStyle = createGlobalStyle`
@@ -62,8 +61,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--ff-secondary);
     background: var(--clr-grey-10);
     color: var(--clr-grey-1);
-    line-height: 1.5;
-    font-size: 0.875rem;
+   
   }
   ul {
     list-style-type: none;
@@ -71,60 +69,25 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-  img {
-    width: 100%;
-    display: block;
-  }
+
   
-  h1,
-  h2,
-  h3,
-  h4 {
-    letter-spacing: var(--spacing);
-    text-transform: capitalize;
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-    font-family: var(--ff-primary);
-  }
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.25rem;
-  }
-  h4 {
-    font-size: 0.875rem;
-  }
-  p {
-    margin-bottom: 1.25rem;
-    color: var(--clr-grey-5);
-  }
-  @media screen and (min-width: 800px) {
-    h1 {
-      font-size: 4rem;
+  html {
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+   
+   
+    @media only screen and (max-width:1166px) {
+        font-size: 57%;
     }
-    h2 {
-      font-size: 2.5rem;
-    }
-    h3 {
-      font-size: 1.75rem;
-    }
-    h4 {
-      font-size: 1rem;
-    }
-    body {
-      font-size: 1rem;
-    }
-    h1,
-    h2,
-    h3,
-    h4 {
-      line-height: 1;
-    }
-  }
+
+ 
+
+
+}
+ 
+  
+
+ 
+
   /*  global classes */
   
   .btn {
@@ -181,11 +144,6 @@ export const Container = styled.div`
     padding-right: 30px;
     padding-left: 30px;
   }
-`;
-
-export const placeholderImage = styled(placeholder)`
-  width: 100%;
-  height: auto;
 `;
 
 export const override = css`

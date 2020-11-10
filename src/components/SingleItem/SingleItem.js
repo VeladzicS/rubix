@@ -11,6 +11,7 @@ import {
   SingleItemTitle,
   SingleItemDesc,
   SingleItemItemsDiv,
+  SingleItemTrailerWrapper,
 } from "./SingleItems.elements";
 import { override } from "../../globalStyles";
 
@@ -58,11 +59,13 @@ const SingleItem = () => {
       </SingleItemNav>
 
       {videoTrailer ? (
-        <ReactPlayer
-          width="100%"
-          height="100%"
-          url={`https://www.youtube.com/watch?v=${videoTrailer}`}
-        />
+        <SingleItemTrailerWrapper>
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url={`https://www.youtube.com/watch?v=${videoTrailer}`}
+          />
+        </SingleItemTrailerWrapper>
       ) : (
         <SingleItemImg
           src={
@@ -77,7 +80,8 @@ const SingleItem = () => {
       <SingleItemItemsDiv>
         <SingleItemTitle>Title: {title || name}</SingleItemTitle>
         <SingleItemDesc>
-          <h2>Description:</h2> {overview}
+          <h2>Description:</h2>
+          <p> {overview}</p>
         </SingleItemDesc>
       </SingleItemItemsDiv>
     </SingleItemDiv>
