@@ -1,16 +1,13 @@
-import React, { useCallback } from "react";
-import { useGlobalContext } from "../../context";
+import React, { useCallback, useContext } from "react";
+import RubixContext from "../../context/rubix/rubixContext";
 import debounce from "lodash.debounce";
 
 import { MyFormInuput, MyForm, SearchIcon } from "./SearchForm.elements";
 
 const SearchForm = () => {
-  const {
-    setQuery,
-    tempQueryValue,
-    setTempQueryValue,
-    setIsLoading,
-  } = useGlobalContext();
+  const rubixContext = useContext(RubixContext);
+
+  const { setQuery, tempQueryValue, setTempQueryValue } = rubixContext;
 
   const debounceSaveQuery = useCallback(
     debounce((newQueryValue) => setQuery(newQueryValue), 1000),
@@ -21,11 +18,10 @@ const SearchForm = () => {
     let newQueryValue = e.target.value;
     setTempQueryValue(newQueryValue);
     debounceSaveQuery(newQueryValue);
-    setIsLoading(false);
   };
 
   return (
-    <MyForm>
+    <MyForm onSubmit={(e) => e.preventDefault()}>
       <SearchIcon />
       <MyFormInuput
         type="text"

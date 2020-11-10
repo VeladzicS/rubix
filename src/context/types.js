@@ -1,0 +1,9 @@
+export const SEARCH_SHOWS = "SEARCH_SHOWS";
+export const GET_TOP_SHOWS = "GET_TOP_MOVIES";
+export const SET_LOADING = "SET_LOADING";
+export const SET_QUERY = "SET_QUERY";
+export const SET_TEMP_QUERY = "SET_TEMP_QUERY";
+export const SET_SHOWS = "SET_SHOWS";
+export const SET_LIST = "SET_LIST";
+export const SET_SINGLE_SHOW = "SET_SINGLE_SHOW";
+export const SET_TRAILER = "SET_TRAILER";

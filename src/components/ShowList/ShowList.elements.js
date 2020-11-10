@@ -35,3 +35,11 @@ export const SingleShowTitle = styled.h2`
   padding: 1rem;
   margin: 0;
 `;
+
+export const EmptySearchMessage = styled.h2`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--clr-primary-5);
+`;

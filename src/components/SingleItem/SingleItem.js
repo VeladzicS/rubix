@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import SingleItemContext from "../../context/singleItem/singleItemContext";
 import { useParams } from "react-router-dom";
-import { useGlobalContext } from "../../context";
 import { PulseLoader } from "react-spinners";
 import ReactPlayer from "react-player";
 import {
@@ -17,36 +17,18 @@ import { override } from "../../globalStyles";
 import { API_URL, API_KEY, IMAGE_BASE_URL } from "../../config";
 
 const SingleItem = () => {
+  const singleItemContext = useContext(SingleItemContext);
+  const {
+    singleShow,
+    trailer,
+    fetchMovie,
+    fetchTrailer,
+    loading,
+  } = singleItemContext;
+
   let videoTrailer = "";
+
   const { item, id } = useParams();
-  const [singleShow, setSingleShow] = useState({});
-  const [trailer, setTrailer] = useState({});
-
-  const { isLoading, setIsLoading } = useGlobalContext();
-
-  //Function for fetching single movie or tv show.
-
-  const fetchMovie = async (url) => {
-    setIsLoading(true);
-    const response = await fetch(url);
-    const data = await response.json();
-    setSingleShow(data);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
-
-  //Function for fetching trailer for single movie or show. Could not find reffrence for it in fetchMovie return.
-
-  const fetchTrailer = async (url) => {
-    setIsLoading(true);
-    const response = await fetch(url);
-    const data = await response.json();
-    setTrailer(data.results);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
 
   useEffect(() => {
     fetchMovie(`${API_URL}${item}/${id}?api_key=${API_KEY}&language=en-US`);
@@ -63,7 +45,7 @@ const SingleItem = () => {
   }
 
   const { poster_path, title, name, overview } = singleShow;
-  if (isLoading) {
+  if (loading) {
     return (
       <PulseLoader css={override} size={50} color={"var(--clr-primary-5)"} />
     );
