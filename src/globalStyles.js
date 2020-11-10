@@ -158,6 +158,12 @@ const GlobalStyle = createGlobalStyle`
     padding-bottom: 2rem;
   }
 
+  .active {
+    background: var(--clr-primary-5);
+    outline: none !important;
+    color: var(--clr-white);
+  }
+
   
   
 `;

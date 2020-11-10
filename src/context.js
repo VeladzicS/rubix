@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import {
   API_KEY,
@@ -16,17 +16,10 @@ const AppProvider = ({ children }) => {
   const [isError, setIsError] = useState(false);
   const [shows, setShows] = useState(initalShow);
   const [query, setQuery] = useState("");
+  const [tempQueryValue, setTempQueryValue] = useState("");
   const [list, setList] = useState([]);
 
-  //This ref is used to only fetch top rated movies/shows when deleting already typed query letters and not when user first types them.
-  const prevQueryRef = useRef();
-  useEffect(() => {
-    prevQueryRef.current = query;
-  });
-
-  const prevQuery = prevQueryRef.current;
-
-  //Function for fetching top 10 shows (movies or tv) based on show State.
+  //Function for fetching top 10 shows (movies or tv) based on Shows state.
 
   const fetchTopShows = async (url) => {
     setIsLoading(true);
@@ -34,16 +27,15 @@ const AppProvider = ({ children }) => {
       const response = await fetch(url);
       const data = await response.json();
       setList(data.results.slice(0, 10));
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+      setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
     }
   };
 
-  //Function for fetching movies or tv show based on query State.
+  //Function for fetching movies or tv show based on Query and Show state.
+
   const fetchSearch = async (url) => {
     try {
       const response = await fetch(url);
@@ -52,9 +44,7 @@ const AppProvider = ({ children }) => {
       if (query.length > 2) {
         setIsLoading(true);
         setList(data.results.slice(0, 10));
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        setIsLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -62,6 +52,8 @@ const AppProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
+
+  //Fetching either TV SHOWS or Movies based on Shows state change.
 
   useEffect(() => {
     if (shows === "tv") {
@@ -73,12 +65,14 @@ const AppProvider = ({ children }) => {
     }
   }, [shows]);
 
+  //Searching for TV SHOWS or MOVIES if the Query length is 3 or bigger based on Query and Shows state change.
+
   useEffect(() => {
     if (shows === "tv" && query.length >= 3) {
       fetchSearch(
         `${API_URL}search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${query}&include_adult=false`
       );
-    } else if (shows === "tv" && query.length === 2 && prevQuery.length === 3) {
+    } else if (shows === "tv" && query.length <= 2) {
       fetchTopShows(API_ENDPOINT_TOP_SHOWS);
     }
 
@@ -86,11 +80,7 @@ const AppProvider = ({ children }) => {
       fetchSearch(
         `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
       );
-    } else if (
-      shows === "movie" &&
-      query.length === 2 &&
-      prevQuery.length === 3
-    ) {
+    } else if (shows === "movie" && query.length <= 2) {
       fetchTopShows(API_ENDPOINT_TOP_MOVIES);
     }
   }, [query, shows]);
@@ -103,6 +93,8 @@ const AppProvider = ({ children }) => {
         list,
         query,
         shows,
+        tempQueryValue,
+        setTempQueryValue,
         setIsLoading,
         setQuery,
         setShows,
@@ -112,7 +104,7 @@ const AppProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-// make sure use
+
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };

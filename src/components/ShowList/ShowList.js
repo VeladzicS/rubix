@@ -6,7 +6,7 @@ import {
   SingleShowImg,
   SingleShowTitle,
 } from "./ShowList.elements";
-import { override, placeholderImage } from "../../globalStyles";
+import { override } from "../../globalStyles";
 
 import { useGlobalContext } from "../../context";
 import { Link } from "react-router-dom";
@@ -20,8 +20,8 @@ const MovieList = () => {
         <PulseLoader css={override} size={50} color={"var(--clr-primary-5)"} />
       ) : (
         list.map((list) => {
-          const { poster_path, title, name, id, backdrop_path } = list;
-          console.log(poster_path);
+          const { poster_path, title, name, id } = list;
+
           return (
             <Link to={`single/${shows}/${id}`} key={id} className="movie">
               <SingleShow>
