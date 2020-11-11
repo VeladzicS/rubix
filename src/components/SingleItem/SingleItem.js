@@ -75,7 +75,7 @@ const SingleItem = () => {
           src={
             poster_path
               ? `${IMAGE_BASE_URL}${poster_path}`
-              : "http://via.placeholder.com/400x600?text=No+Cover+Image+Available"
+              : "https://via.placeholder.com/400x600?text=No+Cover+Image+Available"
           }
           alt="Feautered Image"
         />
