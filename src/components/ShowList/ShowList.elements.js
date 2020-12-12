@@ -4,8 +4,8 @@ export const MovieListContainer = styled.section`
   width: 90%;
   margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-column-gap: 15rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-column-gap: 5rem;
   grid-row-gap: 2rem;
   position: relative;
 
@@ -33,25 +33,27 @@ export const SingleShow = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--clr-black);
+  box-shadow: var(--dark-shadow);
   transition: all 0.3s ease-in-out;
+  height: 32rem;
+  min-height: 32rem;
 
   &:hover {
     transform: translateY(-15px);
-    box-shadow: var(--dark-shadow);
   }
 `;
 
 export const SingleShowImg = styled.img`
   width: 100%;
   height: auto;
+  border: 2px solid var(--clr-black);
 `;
 
 export const SingleShowTitle = styled.h2`
   color: var(--clr-grey-2);
-  padding: 1.7rem;
-  font-size: 1.8rem;
-  margin: 1rem 0;
+  padding: 0.2rem;
+  font-size: 1.5rem;
+  margin: 0.7rem 0;
 `;
 
 export const SingleShowTitleDiv = styled.div`

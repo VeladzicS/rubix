@@ -31,11 +31,11 @@ const MovieList = () => {
   } = rubixContext;
 
   useEffect(() => {
-    if (shows === "tv") {
+    if (shows === "tv" && query.length < 3) {
       fetchTopShows(API_ENDPOINT_TOP_SHOWS);
     }
 
-    if (shows === "movie") {
+    if (shows === "movie" && query.length < 3) {
       fetchTopShows(API_ENDPOINT_TOP_MOVIES);
     }
   }, [shows]);

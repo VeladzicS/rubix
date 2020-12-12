@@ -30,7 +30,7 @@ const RubixState = (props) => {
     const res = await axios.get(url);
     dispatch({
       type: GET_TOP_SHOWS,
-      payload: res.data.results.slice(0, 10),
+      payload: res.data.results.slice(0, 20),
     });
   };
 
@@ -40,7 +40,7 @@ const RubixState = (props) => {
     const res = await axios.get(url);
     dispatch({
       type: SEARCH_SHOWS,
-      payload: res.data.results.slice(0, 10),
+      payload: res.data.results.slice(0, 20),
     });
   };
   //SET LOADING
