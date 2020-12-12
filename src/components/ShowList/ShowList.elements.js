@@ -6,10 +6,10 @@ export const MovieListContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-column-gap: 5rem;
-  grid-row-gap: 2rem;
+  grid-row-gap: 5rem;
   position: relative;
 
-  @media screen and (max-width: 1169px) {
+  /*   @media screen and (max-width: 1169px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 8rem;
   }
@@ -25,7 +25,7 @@ export const MovieListContainer = styled.section`
   @media screen and (max-width: 530px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-column-gap: 2.5rem;
-  }
+  } */
 `;
 
 export const SingleShow = styled.article`
@@ -35,8 +35,8 @@ export const SingleShow = styled.article`
   justify-content: center;
   box-shadow: var(--dark-shadow);
   transition: all 0.3s ease-in-out;
-  height: 32rem;
-  min-height: 32rem;
+  margin: 0;
+  padding: 0;
 
   &:hover {
     transform: translateY(-15px);
@@ -51,15 +51,17 @@ export const SingleShowImg = styled.img`
 
 export const SingleShowTitle = styled.h2`
   color: var(--clr-grey-2);
-  padding: 0.2rem;
+  padding: 0.5rem;
   font-size: 1.5rem;
-  margin: 0.7rem 0;
 `;
 
 export const SingleShowTitleDiv = styled.div`
   width: 100%;
-  height: 100%;
+  height: 7rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const EmptySearchMessage = styled.h2`

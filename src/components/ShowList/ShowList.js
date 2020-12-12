@@ -98,7 +98,6 @@ const MovieList = () => {
                   alt="Featured Image"
                 />
                 <SingleShowTitleDiv>
-                  {" "}
                   <SingleShowTitle> {title ? title : name}</SingleShowTitle>
                 </SingleShowTitleDiv>
               </SingleShow>
